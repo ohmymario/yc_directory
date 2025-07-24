@@ -13,6 +13,7 @@
     "react-dom": "$react-dom"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.16",
     "next": "15.3.4",
     "next-auth": "^5.0.0-beta.29",
     "react": "^19.0.0",
