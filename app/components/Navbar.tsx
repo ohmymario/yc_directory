@@ -8,8 +8,8 @@ const Navbar = async () => {
   // if (!session) return null;
 
   return (
-    <header className='px-5 py-3 bg-white shadow-sm font-work-sans'>
-      <nav className='flex justify-between items-center'>
+    <header className='font-work-sans bg-white px-5 py-3 shadow-sm'>
+      <nav className='flex items-center justify-between'>
         <Link href='/'>
           <Image src='/logo.png' alt='Logo' width={144} height={30} />
         </Link>
@@ -20,11 +20,20 @@ const Navbar = async () => {
                 <span>Create</span>
               </Link>
 
-              <button onClick={signOut}>
-                <span>Logout</span>
-              </button>
+              <form
+                action={async () => {
+                  'use server';
+                  await signOut({
+                    redirectTo: '/',
+                  });
+                }}
+              >
+                <button type='submit'>
+                  <span>Logout</span>
+                </button>
+              </form>
 
-              <Link href={`/user/${session?.id}`}>
+              <Link href={`/user/${session?.user.id}`}>
                 <span>{session?.user?.name}</span>
               </Link>
             </>
@@ -36,7 +45,7 @@ const Navbar = async () => {
                   await signIn('github');
                 }}
               >
-                <button type='submit'>Sign In</button>
+                <button type='submit'>Login</button>
               </form>
             </>
           )}
