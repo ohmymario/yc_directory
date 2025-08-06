@@ -91,7 +91,7 @@
     @apply text-white-100/80 text-sm font-normal;
   }
 
-  .pink_container {
+  /* .pink_container {
     @apply bg-primary flex min-h-[530px] w-full flex-col items-center justify-center px-6 py-10;
     background-image: linear-gradient(
       to right,
@@ -103,7 +103,7 @@
     background-size: 5% 100%;
     background-position: center;
     background-repeat: repeat-x;
-  }
+  } */
 
   .tag {
     @apply bg-secondary font-work-sans relative rounded-sm px-6 py-3 font-bold uppercase before:absolute before:top-2 before:left-2 before:border-t-[10px] before:border-r-[10px] before:border-t-black before:border-r-transparent before:content-[''] after:absolute after:right-2 after:bottom-2 after:border-b-[10px] after:border-l-[10px] after:border-b-black after:border-l-transparent after:content-[''];
@@ -161,15 +161,15 @@
 
   /* navbar */
   .avatar {
-    @apply rounded-full bg-none p-0 drop-shadow-md focus-visible:ring-0 !important;
+    /* @apply rounded-full bg-none p-0 drop-shadow-md focus-visible:ring-0 !important; */
   }
 
   .dropdown-menu {
-    @apply w-56 rounded-2xl border-[5px] border-black bg-white p-5 !important;
+    /* @apply w-56 rounded-2xl border-[5px] border-black bg-white p-5 !important; */
   }
 
   .login {
-    @apply shadow-100 font-work-sans relative border-[5px] border-black bg-white py-4 font-medium text-black transition-all duration-500 hover:shadow-none !important;
+    /* @apply shadow-100 font-work-sans relative border-[5px] border-black bg-white py-4 font-medium text-black transition-all duration-500 hover:shadow-none !important; */
   }
 
   /* searchform */
@@ -178,11 +178,11 @@
   }
 
   .search-input {
-    @apply placeholder:text-black-100 h-auto w-full flex-1 font-bold outline-none placeholder:font-semibold;
+    @apply placeholder:text-black-100 h-auto w-full flex-1 font-bold outline-none placeholder:font-semibold text-black;
   }
 
   .search-btn {
-    @apply flex size-[50px] items-center justify-center rounded-full bg-black !important;
+    @apply flex size-[50px] items-center justify-center rounded-full bg-black;
   }
 
   /* startupcard */
@@ -203,7 +203,7 @@
   }
 
   .startup-card_btn {
-    @apply bg-black-200 rounded-full px-5 py-3 text-[16px] font-medium text-white !important;
+    /* @apply bg-black-200 rounded-full px-5 py-3 text-[16px] font-medium text-white !important; */
   }
 
   .startup-card_skeleton {
@@ -220,11 +220,11 @@
   }
 
   .startup-form_input {
-    @apply placeholder:text-black-300 mt-3 rounded-full border-[3px] border-black px-5 py-7 text-[18px] font-semibold text-black !important;
+    /* @apply placeholder:text-black-300 mt-3 rounded-full border-[3px] border-black px-5 py-7 text-[18px] font-semibold text-black !important; */
   }
 
   .startup-form_textarea {
-    @apply placeholder:text-black-300 mt-3 rounded-[20px] border-[3px] border-black p-5 text-[18px] font-semibold text-black !important;
+    /* @apply placeholder:text-black-300 mt-3 rounded-[20px] border-[3px] border-black p-5 text-[18px] font-semibold text-black !important; */
   }
 
   .startup-form_error {
@@ -232,11 +232,11 @@
   }
 
   .startup-form_editor {
-    @apply placeholder:text-black-300 mt-3 border-[3px] border-black text-[18px] font-semibold text-black !important;
+    /* @apply placeholder:text-black-300 mt-3 border-[3px] border-black text-[18px] font-semibold text-black !important; */
   }
 
   .startup-form_btn {
-    @apply bg-primary min-h-[70px] w-full rounded-full border-[4px] border-black p-5 text-[18px] font-bold !important;
+    /* @apply bg-primary min-h-[70px] w-full rounded-full border-[4px] border-black p-5 text-[18px] font-bold !important; */
   }
 
   /* view */
@@ -251,6 +251,20 @@
   .category-tag {
     @apply bg-primary-100 rounded-full px-4 py-2 text-[16px] font-medium;
   }
+}
+
+@utility pink-container {
+  @apply bg-primary flex min-h-[530px] w-full flex-col items-center justify-center px-6 py-10;
+  background-image: linear-gradient(
+    to right,
+    transparent var(--stripe-start, 49.5%),
+    var(--stripe-color-light, rgba(251, 232, 67, 0.2)) var(--stripe-start, 49.5%),
+    var(--stripe-color-dark, rgba(251, 232, 67, 0.6)) var(--stripe-end, 50.5%),
+    transparent var(--stripe-end, 50.5%)
+  );
+  background-size: var(--stripe-width, 5%) 100%;
+  background-position: center;
+  background-repeat: repeat-x;
 }
 
 .w-md-editor-toolbar {
