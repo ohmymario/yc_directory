@@ -1,4 +1,4 @@
-import SearchForm from '@/app/components/SearchForm';
+import SearchForm from '@/components/SearchForm';
 
 interface HomeProps {
   searchParams: Promise<{ query?: string }>;
