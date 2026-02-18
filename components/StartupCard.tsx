@@ -3,28 +3,12 @@ import { EyeIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { Startup, Author } from '@/sanity/types';
 
-interface Post {
-  _createdAt: Date;
-  views: number;
-  author: {
-    _id: number;
-    name: string;
-  };
-  _id: number;
-  description: string;
-  images: string;
-  category: string;
-  title: string;
-}
+export type StartupTypeCard = Omit<Startup, 'author'> & { author?: Author };
 
-interface StartupCardProps {
-  post: Post;
-}
-
-const StartupCard = (props: StartupCardProps) => {
-  const { _createdAt, views, author, _id, description, images, category, title } = props.post;
-
+const StartupCard = (props: { post: StartupTypeCard }) => {
+  const { _createdAt, views, author, _id, description, image, category, title } = props.post;
   const formattedDate = formatDate(_createdAt);
 
   return (
@@ -59,21 +43,19 @@ const StartupCard = (props: StartupCardProps) => {
 
       <Link href={`/startup/${_id}`}>
         <p className='startup-card_desc'>{description}</p>
-        <img src={images} alt='placeholder' className='startup-card_img' />
+        <img src={image} alt='placeholder' className='startup-card_img' />
       </Link>
 
       <div className='flex-between mt-3 gap-3'>
-        <Link href={`/?query={category.toLowerCase()}`}>
+        <Link href={`/?query=${category?.toLowerCase()}`}>
           <p className='text-16-medium'>{category}</p>
         </Link>
-        <Button className="startup-card_btn" asChild>
-          <Link href={`/startup/${_id}` }>
-            Details
-          </Link>
+        <Button className='startup-card_btn' asChild>
+          <Link href={`/startup/${_id}`}>Details</Link>
         </Button>
       </div>
     </li>
   );
-}
+};
 
 export default StartupCard;
