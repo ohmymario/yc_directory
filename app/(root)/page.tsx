@@ -3,7 +3,7 @@ import SearchForm from '@/components/SearchForm';
 import StartupCard, { StartupTypeCard } from '@/components/StartupCard';
 
 // Sanity
-import { allStartupsQuery } from '@/sanity/lib/queries';
+import { startupsQuery } from '@/sanity/lib/queries';
 import { sanityFetch, SanityLive } from '@/sanity/lib/live';
 
 interface HomeProps {
@@ -13,9 +13,11 @@ interface HomeProps {
 export default async function Home(props: HomeProps) {
   const { searchParams } = props;
 
+  // Search
   const query = (await searchParams).query;
-  // const posts = await client.fetch(allStartupsQuery);
-  const { data: posts } = await sanityFetch({ query: allStartupsQuery });
+  const params = { search: query || null };
+  // const posts = await client.fetch(startupsQuery);
+  const { data: posts } = await sanityFetch({ query: startupsQuery, params });
 
   return (
     <>
