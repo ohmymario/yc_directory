@@ -4,7 +4,7 @@ import StartupCard, { StartupTypeCard } from '@/components/StartupCard';
 
 // Sanity
 import { allStartupsQuery } from '@/sanity/lib/queries';
-import { client } from '@/sanity/lib/client';
+import { sanityFetch, SanityLive } from '@/sanity/lib/live';
 
 interface HomeProps {
   searchParams: Promise<{ query?: string }>;
@@ -14,8 +14,8 @@ export default async function Home(props: HomeProps) {
   const { searchParams } = props;
 
   const query = (await searchParams).query;
-
-  const posts = await client.fetch(allStartupsQuery);
+  // const posts = await client.fetch(allStartupsQuery);
+  const { data: posts } = await sanityFetch({ query: allStartupsQuery });
 
   return (
     <>
@@ -40,6 +40,8 @@ export default async function Home(props: HomeProps) {
           )}
         </ul>
       </section>
+
+      <SanityLive />
     </>
   );
 }
